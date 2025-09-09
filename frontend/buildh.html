@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combined Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background: #9d9e9b;
+            color: rgb(233, 230, 230);
+            padding: 16px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #e3f2fd;
+            border-radius: 6px;
+            padding: 16px;
+            flex: 1 1 250px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button, input[type="submit"] {
+            background-color: #1976d2;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        @media (max-width: 700px) {
+            .cards {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script>
+        function showAlert() {
+            alert('Hello from script!');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>HTML Project</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- Section: Professional Summary -->
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p>Experienced Full Stack Developer with expertise in modern frontend and backend technologies. Passionate about delivering high-quality applications and collaborating in agile environments.</p>
+        </div>
+
+        <!-- Section: Projects -->
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Project Management Dashboard</h3>
+                    <p>Responsive dashboard with real-time updates and analytics using React and Node.js.</p>
+                </div>
+                <div class="card">
+                    <h3>E-commerce Platform</h3>
+                    <p>Scalable site with secure payment integration and user authentication (Angular + Express).</p>
+                </div>
+                <div class="card">
+                    <h3>Portfolio Website</h3>
+                    <p>Personal portfolio optimized for SEO and mobile devices.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: EM Biodata -->
+        <div class="section">
+            <h2>MY Biodata</h2>
+            <img src="../resource/SRIT.jpg" alt="EM Photo" width="120px" height="120px">
+            <ul>
+                <li><strong>Name:</strong> SR</li>
+                <li><strong>Age:</strong> 20</li>
+                <li><strong>Location:</strong> andra pradesh </li>
+            </ul>
+            <h3>Education</h3>
+            <ol>
+                <li>B.Sc.Computer Science</li>
+                <li>INTER MPC</li>
+            </ol>
+            <h3>Skills</h3>
+            <table>
+                <tr><th>Skill</th><th>Proficiency</th></tr>
+                <tr><td>JavaScript</td><td>Beginner</td></tr>
+                <tr><td>Python</td><td>Advanced</td></tr>
+                <tr><td>HTML/CSS</td><td>Beginner</td></tr>
+            </table>
+        </div>
+
+        <!-- Section: Contact Form -->
+        <div class="section">
+            <h2>Contact Me</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+
+            <h3>Form </h3>
+            <form>
+                <label>Name:</label>
+                <input type="text" name="name"><br>
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="male"> Male <br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <br><label>Subscribe:</label>
+                <input type="checkbox" name="subscribe"><br>
+                <label>Country:</label>
+                <select name="country">
+                    <option value="us">USA</option>
+                    <option value="uk">UK</option>
+                </select>
+                <br>
+                <button type="button" onclick="showAlert()">Click Me</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
