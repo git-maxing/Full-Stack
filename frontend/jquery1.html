@@ -18,7 +18,7 @@
          let coords = cityCoords[city];
          let url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current_weather=true`;
 
-         // jQuery AJAX
+         // jQuery AJAX dvd
          $.getJSON(url)
             .done(function(data) {
                if (data.current_weather) {
