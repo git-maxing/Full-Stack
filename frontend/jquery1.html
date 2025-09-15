@@ -1,0 +1,41 @@
+<html>
+   <head>
+      <title>Weather Example</title> 
+      <!-- Add jQuery CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <!-- Example elements -->
+      <div id="weather"></div>
+      <script>
+         // Example cityCoords and city variable
+         const cityCoords = {
+            London: { lat: 51.5074, lon: -0.1278 },
+            Paris: { lat: 48.8566, lon: 2.3522 }
+         };
+         const city = "London"; // Example city
+
+         let coords = cityCoords[city];
+         let url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current_weather=true`;
+
+         // jQuery AJAX
+         $.getJSON(url)
+            .done(function(data) {
+               if (data.current_weather) {
+                  $("#weather").html(`
+                     <h3>Weather in ${city}</h3>
+                     <p>🌡 Temp: ${data.current_weather.temperature}°C</p>
+                     <p>💨 Wind: ${data.current_weather.windspeed} km/h</p>
+                     <p>⏱ Time: ${data.current_weather.time}</p>
+                  `);
+               } else {
+                  $("#weather").html("⚠️ No data available.");
+               }
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+               console.error(errorThrown);
+               $("#weather").html("⚠️ Error fetching weather.");
+            });
+      </script>
+   </body>
+</html>

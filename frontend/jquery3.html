@@ -1,0 +1,220 @@
+<!--Doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>hello people</h1>
+        <ol id="list">
+             <li>task 1</li>
+             <li>task 2</li>
+        </ol>
+        <input type="text" id="Input">
+        <button id="btn">click it</button>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){ 
+                    let task = $("#Input").val();
+                    if(task){
+                       $("#list").append("<li>"+task+"</li>");
+                       $("#Input").val('');
+                    }
+                })
+            });
+        </script>
+    </body>
+</html>
+
+
+<!Doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f5f5f5;
+                margin: 40px;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+            #list {
+                background: #fff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+                max-width: 400px;
+                margin: 20px auto;
+            }
+            #list li {
+                padding: 8px 0;
+                border-bottom: 1px solid #eee;
+                font-size: 18px;
+            }
+            #list li:last-child {
+                border-bottom: none;
+            }
+            #Input {
+                width: 250px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-right: 8px;
+                font-size: 16px;
+            }
+            #btn {
+                padding: 8px 16px;
+                background: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            #btn:hover {
+                background: #0056b3;
+            }
+            .input-area {
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>hello people</h1>
+        <ol id="list">
+             <li>task 1</li>
+             <li>task 2</li>
+        </ol>
+        <div class="input-area">
+            <input type="text" id="Input">
+            <button id="btn">click it</button>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){ 
+                    let task = $("#Input").val();
+                    if(task){
+                       $("#list").append("<li>"+task+"</li>");
+                       $("#Input").val('');
+                    }
+                })
+            });
+        </script>
+    </body>
+</html-->
+
+
+<!Doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f5f5f5;
+                margin: 40px;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+            }
+            #list {
+                background: #fff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+                max-width: 400px;
+                margin: 20px auto;
+            }
+            #list li {
+                padding: 8px 0;
+                border-bottom: 1px solid #eee;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            #list li:last-child {
+                border-bottom: none;
+            }
+            .complete-btn {
+                margin-left: 15px;
+                padding: 4px 10px;
+                background: #28a745;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            .complete-btn:hover {
+                background: #1e7e34;
+            }
+            .completed {
+                background: #d4edda !important;
+                text-decoration: line-through;
+            }
+            #Input {
+                width: 250px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-right: 8px;
+                font-size: 16px;
+            }
+            #btn {
+                padding: 8px 16px;
+                background: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            #btn:hover {
+                background: #0056b3;
+            }
+            .input-area {
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>hello people</h1>
+        <ol id="list">
+             <li>task 1 <button class="complete-btn">Complete</button></li>
+             <li>task 2 <button class="complete-btn">Complete</button></li>
+        </ol>
+        <div class="input-area">
+            <input type="text" id="Input">
+            <button id="btn">click it</button>
+        </div>
+        <script>
+            $(document).ready(function(){
+                // Add complete button click handler (event delegation)
+                $("#list").on("click", ".complete-btn", function(){
+                    $(this).closest("li").toggleClass("completed");
+                });
+
+                $("#btn").click(function(){ 
+                    let task = $("#Input").val();
+                    if(task){
+                       $("#list").append(
+                         "<li>" + 
+                         $("<div>").text(task).html() + 
+                         ' <button class="complete-btn">Complete</button></li>'
+                       );
+                       $("#Input").val('');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
